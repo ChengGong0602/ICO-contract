@@ -12,8 +12,8 @@ contract ICO is Ownable{
     mapping (address => uint256) public userdata;
 
     event tokenTransfer(address _userWallet, uint256 amount);
-    uint256 public presaleMaxAmount = 10000000; // 10 milion
-    uint256 public publicMaxAmount = 150000000; // 150 milion
+    uint256 public presaleMaxAmount = 10000000*10**9; // 10 milion
+    uint256 public publicMaxAmount = 150000000*10**9; // 150 milion
     uint256 public presaleAmount = 0;
     uint256 public publicSaleAmount = 0;
     uint public saleStatus = 0; // sale status: 0- presale, 1- public sale, 2- other sale
