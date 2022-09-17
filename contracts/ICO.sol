@@ -2,26 +2,31 @@
 pragma solidity ^0.8.9;
 
 // import "hardhat/console.sol";
-import "./IBTUSD.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract ICO {
+contract ICO is Ownable{
 
-    address public owner;
+    address public adminWallet;
     // address public icoContract;
     mapping (address => uint256) userdata;
 
     event tokenTransfer(address _userWallet, uint256 amount);
 
-    constructor(address _owner)  {
-        owner = _owner;             
+    constructor(address _adminWallet)  {
+        adminWallet = _adminWallet;             
     }
 
-    function transferToken(address _icoContract, uint256 amount, address _userWallet) public {
-        require(msg.sender == owner, "You aren't the owner");
+    function transferToken(address _tokenContract, uint256 amount, address _userWallet) public {
+        require(msg.sender == adminWallet, "You aren't the adminWallet");
         userdata[_userWallet] = userdata[_userWallet] + amount;
         uint256 depositAmount = userdata[_userWallet];
-        IBTUSD(_icoContract).transferFrom(_icoContract, _userWallet, amount);
+        IERC20(_tokenContract).transferFrom(adminWallet, _userWallet, amount);
         emit tokenTransfer(_userWallet, depositAmount);        
+    }
+
+    function updateAdmin(address _newAddress) external onlyOwner{
+        adminWallet = _newAddress;
     }
 
 }
