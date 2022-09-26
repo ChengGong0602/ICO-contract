@@ -362,7 +362,7 @@ contract Ownable is Context {
     }
 }
 
-contract BTUSD is Context, IERC20, Ownable {
+contract BTCH is Context, IERC20, Ownable {
     using SafeMath for uint256;
     using Address for address;
 
@@ -374,8 +374,8 @@ contract BTUSD is Context, IERC20, Ownable {
     mapping (address => bool) private _isExcludedFromReward;
     address[] private _excludedAddressesFromReward;
    
-    string constant private _name = "Bitcoin US Dollar";
-    string constant private _symbol = "BTUSD";
+    string constant private _name = "Bitcoin Charity";
+    string constant private _symbol = "BTCH";
     uint256 constant private _decimals = 9;
 
     uint256 private constant MAX = ~uint256(0);
