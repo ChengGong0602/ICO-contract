@@ -4,7 +4,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./lifecycle/Pausable.sol";
 
-contract BTCH is IERC20, Ownable, Pausable {
+contract BAUD is IERC20, Ownable, Pausable {
 
     string public name;
     string public symbol;
@@ -16,8 +16,8 @@ contract BTCH is IERC20, Ownable, Pausable {
 
     constructor (
     ) {
-        name = "Bitcoin Charity";
-        symbol = "BTCH";
+        name = "Bitcoin AUSTRALIAN DOLLAR";
+        symbol = "BAUD";
         decimals = 9;
         totalSupply = 1000000000 * 10**9;
         _balances[msg.sender] = totalSupply;

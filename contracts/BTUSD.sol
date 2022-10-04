@@ -16,8 +16,8 @@ contract BTCH is IERC20, Ownable, Pausable {
 
     constructor (
     ) {
-        name = "Bitcoin Charity";
-        symbol = "BTCH";
+        name = "Bitcoin UNITED STATES DOLLAR";
+        symbol = "BTUSD";
         decimals = 9;
         totalSupply = 1000000000 * 10**9;
         _balances[msg.sender] = totalSupply;
